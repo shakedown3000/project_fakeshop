@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/assets/style_new.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="burger-menu" id="burger-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <!-- Logo -->
+        <a href="#" onclick="window.location.reload(false);">
+          <img id="logo" src="./src/assets/logo.png" alt="logo"
+        /></a>
+        <!-- Icons -->
+        <div id="user">
+          <img src="./src/assets/person.png" alt="person" class="icons" />
+          <img src="./src/assets/heart.png" alt="person" class="icons" />
+          <img src="./src/assets/shop.png" alt="person" class="icons" />
+        </div>
+      </nav>
+
+      <section id="filter_section">
+        <form>
+          <input type="text" id="searchText" placeholder="Search by title" />
+          <button type="button" id="searchButton">Search</button>
+        </form>
+
+        <div class="input-group">
+          <label for="sortier-feld">Sort by:</label>
+          <select id="sortier-feld" name="sortier-feld">
+            <option value="#">Select an option</option>
+            <option value="preis-aufsteigend">Preis (aufsteigend)</option>
+            <option value="preis-absteigend">Preis (absteigend)</option>
+            <option value="rating-aufsteigend">Rating (aufsteigend)</option>
+            <option value="rating-absteigend">Rating (absteigend)</option>
+          </select>
+        </div>
+
+        <div id="categories">
+          <p>Filter by Categories</p>
+          <button id="filter_electronics" class="filter_button">
+            Electronics
+          </button>
+          <button id="filter_jewelery" class="filter_button">Jewelery</button>
+          <button id="filter_mens_clothing" class="filter_button">
+            Men's Clothing
+          </button>
+          <button id="filter_womens_clothing" class="filter_button">
+            Women's Clothing
+          </button>
+        </div>
+      </section>
+      <div id="statusText"></div>
+    </header>
+
+    <main id="main_content_display"></main>
+
+    <footer class="footer">
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>Immermannstraße 123<br />Little Tokyo, Germany</p>
+        <p>Email: contact@lisa_anna_shop.com</p>
+        <p>Phone: +123 456 7890</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Newsletter</h4>
+        <form>
+          <input type="email" placeholder="Your email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"
+            ><img src="./src/assets/facebook (1).png" alt="Facebook"
+          /></a>
+          <a href="#"
+            ><img src="./src/assets/twitter (1).png" alt="Twitter"
+          /></a>
+          <a href="#"
+            ><img src="./src/assets/instagram.png" alt="Instagram"
+          /></a>
+          <a href="#"><img src="./src/assets/youtube.png" alt="YouTube" /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  background-color: white;
+}
+
+header {
+  width: 100vw;
+  margin: 20px 0;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  padding: 15px;
+}
+
+#logo {
+  width: 300px;
+}
+
+.icons {
+  width: 20px;
+}
+
+#filter_section {
+  display: flex;
+}
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger-menu .line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+#filter_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  padding-bottom: 30px;
+  border-bottom: 0.1px solid grey;
+}
+
+#categories {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"],
+button,
+select {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+
+#main_content_display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Produkt Card */
+#main_content_display > div {
+  background-color: #fff;
+  padding: 10%;
+  height: 42rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Preis und AddtoCart */
+#main_content_display > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#main_content_display img {
+  width: 100%;
+  height: 70%;
+  margin-bottom: 25%;
+  object-fit: contain;
+  transition: transform 0.3s ease; 
+}
+#main_content_display img:hover {
+  transform: scale(1.1);
+}
+
+#main_content_display .heart {
+  width: 20px;
+    height: auto;
+    margin-top: 5px;
+    margin: 10px 0;
+    object-fit: contain;
+    transition: none;
+}
+/* .heart.favorited {
+  filter: invert(40%) sepia(90%) saturate(350%) hue-rotate(330deg) brightness(90%) contrast(90%);
+} */
+
+
+
+#main_content_display h1 {
+  font-size: 12px;
+  height: 50px;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#main_content_display p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+#main_content_display button {
+  font-size: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+#main_content_display button:hover {
+  background-color: #ccc; /
+}
+
+
+.colorButton {
+  background-color: lightgray;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.active {
+  background-color: #A7C4C8;
+  color: white;
+}
+
+
+
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  color: #555;
+  font-weight: 300;
+}
+
+.footer-section {
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #555;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: none;
+}
+
+.footer-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section input[type="email"] {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  padding: 5px;
+  width: 200px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 5px;
+  border: 0.2px solid #ccc;
+  /* border-radius: 5px; */
+}
+
+.footer-section button {
+  font-family: "Montserrat", sans-serif;
+  width: 100px;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.footer-section button:hover {
+  background-color:  #A7C4C8;
+  color: white;
+}
+
+.social-icons a {
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.2;
+}
+
+.social-icons img:hover {
+  opacity: 0.5;
+}
+
+#loading {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 12px solid  #5d3ede;
+  border-top: 12px solid #00ecaa;
+  border-radius: 50%;
+  animation: spin 1.0s linear infinite, move 1.0s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
