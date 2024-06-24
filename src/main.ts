@@ -1,6 +1,5 @@
 import { IProduct } from "./contracts/contracts";
-import { IRating } from "./contracts/contracts";
-import { Category } from "./contracts/contracts";
+// import * as lodash from "lodash";
 
 const BASEURL = "https://fakestoreapi.com/products";
 const ALLELECTRONICS = `${BASEURL}/category/electronics`;
@@ -8,17 +7,29 @@ const ALLJEWELERY = `${BASEURL}/category/jewelery`;
 const ALLMENSCLOTHING = `${BASEURL}/category/men's clothing`;
 const ALLWOMENSCLOTHING = `${BASEURL}/category/women's clothing`;
 
-
-
-const searchText = document.getElementById('searchText') as HTMLInputElement;
-const searchButton = document.getElementById('searchButton') as HTMLButtonElement;
-const sortierFeld = document.getElementById('sortier-feld') as HTMLSelectElement;
-const filterElectronics = document.getElementById('filter_electronics') as HTMLButtonElement;
-const filterJewelery = document.getElementById('filter_jewelery') as HTMLButtonElement;
-const filterMensClothing = document.getElementById('filter_mens_clothing') as HTMLButtonElement;
-const filterWomensClothing = document.getElementById('filter_womens_clothing') as HTMLButtonElement;
-const maincontent = document.getElementById('main_content_display') as HTMLElement;
-const statusDiv = document.getElementById('statusText') as HTMLDivElement;
+const searchText = document.getElementById("searchText") as HTMLInputElement;
+const searchButton = document.getElementById(
+  "searchButton"
+) as HTMLButtonElement;
+const sortierFeld = document.getElementById(
+  "sortier-feld"
+) as HTMLSelectElement;
+const filterElectronics = document.getElementById(
+  "filter_electronics"
+) as HTMLButtonElement;
+const filterJewelery = document.getElementById(
+  "filter_jewelery"
+) as HTMLButtonElement;
+const filterMensClothing = document.getElementById(
+  "filter_mens_clothing"
+) as HTMLButtonElement;
+const filterWomensClothing = document.getElementById(
+  "filter_womens_clothing"
+) as HTMLButtonElement;
+const maincontent = document.getElementById(
+  "main_content_display"
+) as HTMLElement;
+const statusDiv = document.getElementById("statusText") as HTMLDivElement;
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchAllProducts(); //lisa
@@ -57,22 +68,23 @@ function displayProducts(products: IProduct[]) {
       const heart = document.createElement("img");
       heart.src = "./src/assets/heart_unclicked.png";
       heart.classList.add("heart");
-      heart.id = 'favorite_heart';
+      heart.id = "favorite_heart";
       // heart
       const heart_clicked = "./src/assets/heart_clicked.png";
       const heart_unclicked = "./src/assets/heart_unclicked.png";
       // Klick-Event-Listener hinzufügen
-      heart.addEventListener('click', () => {
-      // Bildquelle umschalten
-      if (heart.src.includes("unclicked")) {
-        console.log("test");
-      heart.src = heart_clicked;
-      } else {
-      heart.src = heart_unclicked;
-      }});
+      heart.addEventListener("click", () => {
+        // Bildquelle umschalten
+        if (heart.src.includes("unclicked")) {
+          console.log("test");
+          heart.src = heart_clicked;
+        } else {
+          heart.src = heart_unclicked;
+        }
+      });
       const divElementInner = document.createElement("div");
       const price = document.createElement("p");
-      price.innerHTML = product.price.toString()+"€";
+      price.innerHTML = product.price.toString() + "€";
       const addCart = document.createElement("button");
       addCart.innerHTML = "Add to Cart";
       divElementInner.appendChild(price);
@@ -85,7 +97,7 @@ function displayProducts(products: IProduct[]) {
       return divElement;
     });
     singleProductDivs.forEach((product) => {
-      maincontent.appendChild(product); 
+      maincontent.appendChild(product);
     });
   }
 }
@@ -133,7 +145,6 @@ sortierFeld.addEventListener("change", sortProducts);
 
 // //? const filterElectronics = document.getElementById('filter_electronics') as HTMLButtonElement;
 
-
 filterElectronics?.addEventListener("click", () => {
   activateFilterByCategory(ALLELECTRONICS);
   toggleActiveButton(filterElectronics);
@@ -147,7 +158,7 @@ filterMensClothing?.addEventListener("click", () => {
   toggleActiveButton(filterElectronics);
 });
 filterWomensClothing?.addEventListener("click", () => {
-  console.log('button_clicked');
+  console.log("button_clicked");
   activateFilterByCategory(ALLWOMENSCLOTHING);
   toggleActiveButton(filterElectronics);
 });
@@ -167,42 +178,37 @@ function activateFilterByCategory(url: string) {
     })
     .catch((error: Error) => {
       console.error(error);
-    })
-  }
+    });
+}
 
-
-
-
-searchButton?.addEventListener('click', (event: Event) => {
+searchButton?.addEventListener("click", (event: Event) => {
   event.preventDefault;
-  let products = findSearchedText ();
+  let products = findSearchedText();
   displayProducts(products);
   console.log(findSearchedText());
 
-  const createtStatuselement = document.createElement('p');
-  if(products.length>0){
+  const createtStatuselement = document.createElement("p");
+  if (products.length > 0) {
     statusDiv.innerHTML = "";
-    createtStatuselement.innerHTML = `Es wurden erfolgreich ${products.length} Produkte gefunden.`
+    createtStatuselement.innerHTML = `Es wurden erfolgreich ${products.length} Produkte gefunden.`;
     createtStatuselement.style.backgroundColor = "#a7c4c8";
     createtStatuselement.style.padding = "2%";
     createtStatuselement.style.borderRadius = "15px";
     statusDiv.appendChild(createtStatuselement);
-  }else{
+  } else {
     statusDiv.innerHTML = "";
-    createtStatuselement.innerHTML = `Es wurden leider keine Produkte gefunden.`
+    createtStatuselement.innerHTML = `Es wurden leider keine Produkte gefunden.`;
     createtStatuselement.style.backgroundColor = "#a7c4c8";
     createtStatuselement.style.padding = "2%";
     createtStatuselement.style.borderRadius = "15px";
     statusDiv.appendChild(createtStatuselement);
   }
-  });
-  
-
+});
 
 function findSearchedText() {
   const searchTextInputValue = searchText.value;
-  const allProductsWithSearchedText = allProducts.filter(product =>
-      product.title.toLowerCase().includes(searchTextInputValue.toLowerCase())
+  const allProductsWithSearchedText = allProducts.filter((product) =>
+    product.title.toLowerCase().includes(searchTextInputValue.toLowerCase())
   );
   return allProductsWithSearchedText;
 }
@@ -212,19 +218,24 @@ function findSearchedText() {
 //?ausgewählt category farblich zeigen
 //?
 
-
-const buttons = document.querySelectorAll(".filter_button") as NodeListOf<HTMLButtonElement>;
+const buttons = document.querySelectorAll(
+  ".filter_button"
+) as NodeListOf<HTMLButtonElement>;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     buttons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
-  })})
+  });
+});
 
-  function toggleActiveButton(button: HTMLButtonElement) {
-    const filterButtons = [filterElectronics, filterJewelery, filterMensClothing, filterWomensClothing];
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+function toggleActiveButton(button: HTMLButtonElement) {
+  const filterButtons = [
+    filterElectronics,
+    filterJewelery,
+    filterMensClothing,
+    filterWomensClothing,
+  ];
+  filterButtons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
 }
-
-
