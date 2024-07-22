@@ -1,5 +1,6 @@
 import { IProduct } from "./contracts/contracts";
-// import * as lodash from "lodash";
+import heartClicked from "./assets/heart_clicked.png";
+import heartUnclicked from "./assets/heart_unclicked.png";
 
 const BASEURL = "https://fakestoreapi.com/products";
 const ALLELECTRONICS = `${BASEURL}/category/electronics`;
@@ -32,7 +33,7 @@ const maincontent = document.getElementById(
 const statusDiv = document.getElementById("statusText") as HTMLDivElement;
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchAllProducts(); //lisa
+  fetchAllProducts();
 });
 
 let allProducts: IProduct[] = [];
@@ -62,24 +63,20 @@ function displayProducts(products: IProduct[]) {
       stillLoading.id = "loading";
       divElement.appendChild(stillLoading);
       const imgElement = document.createElement("img");
-      imgElement.src = product.image; // src statt innerhtml lisa
+      imgElement.src = product.image;
       const headline = document.createElement("h1");
       headline.innerHTML = product.title;
       const heart = document.createElement("img");
-      heart.src = "./src/assets/heart_unclicked.png";
+      heart.src = heartUnclicked;
       heart.classList.add("heart");
       heart.id = "favorite_heart";
-      // heart
-      const heart_clicked = "./src/assets/heart_clicked.png";
-      const heart_unclicked = "./src/assets/heart_unclicked.png";
-      // Klick-Event-Listener hinzufügen
+
       heart.addEventListener("click", () => {
         // Bildquelle umschalten
         if (heart.src.includes("unclicked")) {
-          console.log("test");
-          heart.src = heart_clicked;
+          heart.src = heartClicked;
         } else {
-          heart.src = heart_unclicked;
+          heart.src = heartUnclicked;
         }
       });
       const divElementInner = document.createElement("div");
@@ -142,8 +139,6 @@ function sortRatingDescending() {
 }
 
 sortierFeld.addEventListener("change", sortProducts);
-
-// //? const filterElectronics = document.getElementById('filter_electronics') as HTMLButtonElement;
 
 filterElectronics?.addEventListener("click", () => {
   activateFilterByCategory(ALLELECTRONICS);
@@ -212,11 +207,6 @@ function findSearchedText() {
   );
   return allProductsWithSearchedText;
 }
-
-//?footer
-//?hover-zoom-bilder
-//?ausgewählt category farblich zeigen
-//?
 
 const buttons = document.querySelectorAll(
   ".filter_button"

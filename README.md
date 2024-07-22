@@ -2,8 +2,6 @@
 
 Welcome to our Fake Online Shop! This project demonstrates an e-commerce website with various filtering and sorting functionalities.
 
-## Screenshots
-
 ### Homepage
 
 ![Homepage Screenshot](/src/assets/Project_Fakeshop_Screenshot_1.png)

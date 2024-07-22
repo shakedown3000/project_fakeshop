@@ -81,7 +81,6 @@ button:hover {
   background-color: #ddd;
 }
 
-
 #main_content_display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -124,11 +123,10 @@ button:hover {
     object-fit: contain;
     transition: none;
 }
-/* .heart.favorited {
-  filter: invert(40%) sepia(90%) saturate(350%) hue-rotate(330deg) brightness(90%) contrast(90%);
-} */
 
-
+.heart:hover {
+  cursor: pointer;
+}
 
 #main_content_display h1 {
   font-size: 12px;
@@ -168,9 +166,6 @@ button:hover {
   background-color: #A7C4C8;
   color: white;
 }
-
-
-
 
 .footer {
   display: grid;
