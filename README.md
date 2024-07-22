@@ -4,7 +4,7 @@ Welcome to our Fake Online Shop! This project demonstrates an e-commerce website
 
 ### Homepage
 
-![Homepage Screenshot](/src/assets/Project_Fakeshop_Screenshot_1.png)
+![Homepage Screenshot](/public/Project_Fakshop.png)
 
 ## Features
 
@@ -42,5 +42,3 @@ You can view a live demo of the project [here](https://shakedown3000.github.io/p
 ## Credits
 
 - Co-programmer: [lisayl1688](https://github.com/lisayl1688)
-
-![Homepage Screenshot](/src/assets/Project_Fakeshop_Screenshot_2.png)
