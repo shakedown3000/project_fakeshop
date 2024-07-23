@@ -146,16 +146,16 @@ filterElectronics?.addEventListener("click", () => {
 });
 filterJewelery?.addEventListener("click", () => {
   activateFilterByCategory(ALLJEWELERY);
-  toggleActiveButton(filterElectronics);
+  toggleActiveButton(filterJewelery);
 });
 filterMensClothing?.addEventListener("click", () => {
   activateFilterByCategory(ALLMENSCLOTHING);
-  toggleActiveButton(filterElectronics);
+  toggleActiveButton(filterMensClothing);
 });
 filterWomensClothing?.addEventListener("click", () => {
   console.log("button_clicked");
   activateFilterByCategory(ALLWOMENSCLOTHING);
-  toggleActiveButton(filterElectronics);
+  toggleActiveButton(filterWomensClothing);
 });
 
 function activateFilterByCategory(url: string) {
@@ -177,26 +177,30 @@ function activateFilterByCategory(url: string) {
 }
 
 searchButton?.addEventListener("click", (event: Event) => {
-  event.preventDefault;
+  event.preventDefault();
   let products = findSearchedText();
   displayProducts(products);
   console.log(findSearchedText());
 
   const createtStatuselement = document.createElement("p");
-  if (products.length > 0) {
-    statusDiv.innerHTML = "";
-    createtStatuselement.innerHTML = `Es wurden erfolgreich ${products.length} Produkte gefunden.`;
-    createtStatuselement.style.backgroundColor = "#a7c4c8";
-    createtStatuselement.style.padding = "2%";
-    createtStatuselement.style.borderRadius = "15px";
-    statusDiv.appendChild(createtStatuselement);
+  if (statusDiv) {
+    if (products.length > 0) {
+      statusDiv.innerHTML = "";
+      createtStatuselement.innerHTML = `Es wurden erfolgreich ${products.length} Produkt(e) gefunden.`;
+      createtStatuselement.style.backgroundColor = "#a7c4c8";
+      createtStatuselement.style.padding = "2%";
+      createtStatuselement.style.borderRadius = "15px";
+      statusDiv.appendChild(createtStatuselement);
+    } else {
+      statusDiv.innerHTML = "";
+      createtStatuselement.innerHTML = `Es wurden leider keine Produkte gefunden.`;
+      createtStatuselement.style.backgroundColor = "#a7c4c8";
+      createtStatuselement.style.padding = "2%";
+      createtStatuselement.style.borderRadius = "15px";
+      statusDiv.appendChild(createtStatuselement);
+    }
   } else {
-    statusDiv.innerHTML = "";
-    createtStatuselement.innerHTML = `Es wurden leider keine Produkte gefunden.`;
-    createtStatuselement.style.backgroundColor = "#a7c4c8";
-    createtStatuselement.style.padding = "2%";
-    createtStatuselement.style.borderRadius = "15px";
-    statusDiv.appendChild(createtStatuselement);
+    console.error("statusDiv is not defined");
   }
 });
 
